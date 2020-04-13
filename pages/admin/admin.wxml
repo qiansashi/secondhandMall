@@ -1,0 +1,34 @@
+<!--pages/admin/admin.wxml-->
+<view class="container-log-list">
+  <form>
+    <view class='phonenum'>
+      <button class="phonearea" size='small' bindtap="open1" plain='true'>{{phone_area}}</button>
+      <input class="phonearea" type="number" value="{{phone_value}}"  focus='true' 
+      placeholder="{{phone_placeholder}}" maxlength= '11' bindinput='phone_num'  disabled='{{num_disabled}}'/>
+    </view>
+    <view class='login_code'>
+      <input  class="login_code2" type="number" value='{{code_value}}' placeholder='请输入验证码'  maxlength='6' bindinput='code_log' />
+      <button class='logcode' size='small' bindtap='logcodeclick' plain='true' disabled='{{ code_disable }}'>{{send_code}}</button>
+    </view>
+  </form>
+  <view class='phone_login'>
+    <button class='phone_login' plain='{{logplain}}' bindtap='phonelogin' disabled='{{phone_login_disable}}'><text class='login'>登录</text></button>
+    <view class='checkbox_size'>
+      <checkbox-group bindchange='read_change'>
+        <checkbox class='checkbox1' value='{{read_value}}' checked='{{read_checked}}' color='#2d3449'>
+          <view class='read_provision'>{{read_value}}
+            <navigator class='provision' open-type='navigate' url='/pages/provision/provision'>《相关条款》</navigator>
+          </view>
+        </checkbox>
+      </checkbox-group>
+    </view>
+  </view>
+  <span class="otherway">———使用以下方式登录————————————</span>
+  <view class='wechat_login'>
+    <button class='wechat_login' wx:if="{{canIUse}}" type='primary' open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain='true' >
+      <text class='wechat_login'>授权微信登录</text>
+    </button>
+  </view>
+  <i-action-sheet visible="{{ phonenumvisible }}" actions="{{ phonenumactions }}" 
+    bind:click="phonenumclickItem" mask-closable="{{mask}}" bind:cancel="phonenumcancel" />
+</view>

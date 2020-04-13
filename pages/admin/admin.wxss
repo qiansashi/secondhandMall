@@ -1,0 +1,108 @@
+/* pages/admin/admin.wxss */
+view.container-log-list{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  background-image: url("");
+  background-repeat: repeat-y;
+}
+
+view.phonenum{
+  display: flex;
+  flex-direction: row;
+  margin-top: 185rpx;
+}
+
+view.login_code{
+  display: flex;
+  flex-direction: row;
+}
+
+button.phonearea{
+  font-size: 75%;
+  height: 55rpx;
+  border: none;
+  margin-top: 22rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input.phonearea{
+  width: 260rpx;
+  margin-top: 24rpx;
+  font-size: 27rpx;
+  margin-left: 25rpx;
+}
+
+input.login_code2{
+  width: 210rpx;
+  margin-top: 31rpx;
+  margin-left: 40rpx;
+  font-size: 27rpx;
+}
+
+button.logcode{
+  font-size: 75%;
+  height: 60rpx;
+  margin-top: 21rpx;
+  margin-left: 10rpx;
+  border: none;
+}
+
+button.phone_login{
+  margin-top: 90rpx;
+  color: #2d3449;
+  border-radius: 80rpx;
+  border:transparent;
+  height: 80rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+span.otherway{
+  font-family: 微软雅宋;
+  font-size: 55%;
+  color: #979496;
+  margin-top: 130rpx;
+}
+
+button.wechat_login{
+  margin-top: 95rpx;
+  border-radius: 80rpx;
+  text-align: center;
+  height: 65rpx;
+  width: 350rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.checkbox_size{
+  margin-top: 15rpx;
+
+}
+
+.checkbox1{
+  transform: scale(0.7,0.7);
+}
+
+view.read_provision{
+  font-size: 85%;
+  display: flex;
+  flex-direction: row;
+}
+
+.provision{
+  color: #2d3449;
+}
+
+text.wechat_login{
+  font-size: 85%;
+}

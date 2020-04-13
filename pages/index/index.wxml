@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="wrapper">
+  <view class="top_color_block"></view>
+  <view class="top_bar_container">
+    <view class="top_bar_item" wx:for="{{topBarArray}}" wx:key="id">
+      <block class="top_bar"> 
+        <button class="top_bar_btn" bindtap="pageSelect" data-id="{{item.id}}">
+        <image class="top_bar_img" src="{{item.topBarImg}}">
+        </image>
+        {{item.topBarBtn}}</button>
+        <text class="top_bar_icon">{{item.icon}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="swiper_container">
+    <swiper class="swipers" 
+    autoplay="{{autoplay}}" 
+    current="{{currentSwiper}}" 
+    bindchange="swiperChange"
+    >
+      <view wx:for="{{adArray}}" wx:key="id">
+        <swiper-item>
+          <image class="scrollImg" src="{{item.src}}" bindtap="tapBanner">{{item.num}}</image>
+        </swiper-item>
+      </view>
+    </swiper>
+    <!--重置小圆点的样式  -->
+    <view class="dots">  
+        <block wx:for="{{adArray}}" wx:key="index">  
+            <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>  
+        </block>  
+    </view>  
+  </view>
+  <view class="background_block1"></view>
+  <view class="hot_msg">
+    <text class="hot_title">近期热门</text>
+    <view class="hot_release" style="background-image: url({{hotImgUrl}});">hot_pic</view>
+  </view>
+  <view class="background_block2"></view>
+  <mp-sticky class="float_container" offset-top="{{mpoffsettop}}" z-index="{{mpzindex}}">
+    <view class="float_tag_latest">
+      <view class="float_item" wx:for="{{tagArray}}" wx:key="index">{{item.tagName}}
+        <view class="float_line{{item.id}}" style="color:{{item.line_color}}" bindtap="{{}}"></view>
+      </view>
+    </view>
+  </mp-sticky>
+ 
+</view>

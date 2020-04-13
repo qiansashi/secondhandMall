@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/admin/admin",
+    "pages/release/release",
+    "pages/sale/sale",
+    "pages/favourite/favourite",
+    "pages/bought/bought",
+    "pages/released/released"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2d3449",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "小程序即将使用您的位置"
+    }
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#2d3449",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/release/release",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/admin/admin",
+        "text": "我的"
+      }
+    ]
+  }
+}
