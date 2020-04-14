@@ -1,2 +1,7 @@
 <!--pages/release/release.wxml-->
-<text>pages/release/release.wxml</text>
+<import src="../../template/release_items_template.wxml" />
+<view class="wrapper">
+  <view class="release_items" wx:for="{{ItemArray}}" wx:key="id">
+    <template is="release_items_template" data="{{item}}"></template>
+  </view>
+</view>

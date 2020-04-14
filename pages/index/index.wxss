@@ -1,11 +1,5 @@
-.wrapper{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
+@import "../../template/release_items_template.wxss";
+@import "../../template/wrapper.wxss";
 
 .top_color_block{
   width: 100%;
@@ -122,6 +116,14 @@
   color: #2d3449;
 }
 
+.hot_release{
+  background-size: 100% auto; 
+  background-repeat: no-repeat; 
+  height: 133rpx;
+  width: 100%;
+
+}
+
 .background_block2{
   width: 100%;
   height: 20rpx;
@@ -157,3 +159,15 @@
   background-color: #2d3449;
 
 }
+
+.latest_release_items{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  border-color: white;
+  border-radius: 20rpx;
+  border-style: solid;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+  margin-bottom: 16rpx;
+}
+

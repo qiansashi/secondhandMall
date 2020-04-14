@@ -1,0 +1,14 @@
+<!--template/release_items_template.wxml-->
+<template name="release_items_template">
+  <view class="latest_release_publisher {{item.id}}">
+    <view class="release_publisher_img" style="background-image:url({{item.publisherImgSrc}})"></view>
+    <view class="release_publisher_id">{{item.publisherName}}</view>
+  </view>
+  <view class="latest_release_detail {{item.id}}">
+    <text class="release_detail_text">{{item.detailText}}</text>
+    <image class="release_detail_img" src="{{item.DetailImgSrc}}" bindtap="tapToTurnBigger"></image>
+    <button class="detail_btn" bindtap="goToDetail">{{detailBtn}}</button>
+    <view class="release_tag">{{item.tag}}</view>
+    <view class="release_date">{{item.date}}</view>
+  </view>
+</template>

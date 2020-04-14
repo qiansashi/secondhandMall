@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<import src="../../template/release_items_template.wxml" />
 <view class="wrapper">
   <view class="top_color_block"></view>
   <view class="top_bar_container">
@@ -44,5 +45,7 @@
       </view>
     </view>
   </mp-sticky>
- 
+  <view class="latest_release_items" wx:for="{{latestItemArray}}" wx:key="id">
+    <template is="release_items_template" data="{{item}}" ></template>
+  </view>
 </view>

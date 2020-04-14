@@ -1,0 +1,64 @@
+/* template/release_items_template.wxss */
+
+.latest_release_publisher{
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.release_publisher_img{
+  width: 88rpx;
+  height: 88rpx;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  border-radius: 50rpx;
+  margin: 20rpx;
+
+}
+
+.release_publisher_id{
+  margin-top: 35rpx;
+  margin-left: 10rpx;
+  font-family:"Microsoft YaHei";
+  height: 50rpx;
+}
+
+.latest_release_detail{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 350rpx;
+}
+
+.release_detail_text{
+
+  height: 88rpx;
+  width: 80%;
+  margin-left: 75rpx;
+
+  overflow-y: scroll;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.release_detail_img{
+  margin-left: 75rpx;
+  width: 45%;
+}
+
+.detail_btn{
+
+}
+
+.release_tag{
+
+}
+
+.release_date{
+
+}
+

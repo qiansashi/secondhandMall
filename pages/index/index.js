@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+import { latestDataMock } from "../../mock/release_data_mock.js";
 
 Page({
   data: {
@@ -50,6 +51,15 @@ Page({
   }],
   mpoffsettop: -18,
   mpzindex: 4,
+  latestItemArray:[{
+    id: "0",
+    publisherImgSrc:"",
+    publisherName:"",
+    detailText:"",
+    DetailImgSrc:"",
+    tag:"",
+    date:""
+  }]
   },
 
   onReady: function () {
@@ -62,6 +72,7 @@ Page({
   onLoad: function (options) {
     this.getHotImgUrl();
     this.getBannerImgUrl();
+    this.getlatestData();
   },
 
   pageSelect:function (item) {
@@ -109,15 +120,21 @@ Page({
   getHotImgUrl:function () {
     var that=this;
     wx.request({
-      url:'http://..',
+      // url:'https://creeper.ds918.top/api/v1/banner?id=2',
+      url:'',
       data:{
   
       },
       header: { 'Content-Type': 'application/json' }, 
       success(res){
         console.log(res.data);
+        let hotImgArray=new Array();
+        for(var i=0;i<1;++i){
+          hotImgArray[i]="https://creeper.ds918.top"+res.data['items'][i]['img']['url'];
+          console.log(hotImgArray);
+        }
         that.setData({
-          HotImgUrl:res.data
+          hotImgUrl: hotImgArray[0]
         })
       }
     })
@@ -126,7 +143,7 @@ Page({
   getBannerImgUrl:function () {
     var that=this;
     wx.request({
-      // url:'http://api.ds918.top/api/v1/banner?id=10001',
+      // url:'https://creeper.ds918.top/api/v1/banner?id=1',
       url:'',
       data:{
   
@@ -137,7 +154,7 @@ Page({
         var data=res.data;
         let bannerImgArray=new Array();
         for(var i=0;i<3;++i){
-          bannerImgArray[i]="http://api.ds918.top"+res.data['items'][i]['img']['image_url'].substring(2);
+          bannerImgArray[i]="https://creeper.ds918.top"+res.data['items'][i]['img']['url'];
         }
         //测试接口获取值
         for(var initItem in data){
@@ -159,6 +176,13 @@ Page({
       }
     })
   },
-
+  
+  getlatestData:function(){
+    var that=this;
+    console.log(latestDataMock);
+    that.setData({
+      latestItemArray:latestDataMock
+    })
+  }
 })
 
