@@ -2,7 +2,10 @@
 //获取应用实例
 const app = getApp()
 import { latestDataMock } from "../../mock/release_data_mock.js";
-
+import { indexDataMock } from "../../mock/release_data_mock";
+import {getApi} from "../../api/api_request";
+import {postApi} from "../../api/api_request";
+import {getBannerId} from "../../api/banner_api";
 Page({
   data: {
    topBarArray:[{
@@ -119,62 +122,44 @@ Page({
 
   getHotImgUrl:function () {
     var that=this;
-    wx.request({
-      // url:'https://creeper.ds918.top/api/v1/banner?id=2',
-      url:'',
-      data:{
-  
-      },
-      header: { 'Content-Type': 'application/json' }, 
-      success(res){
-        console.log(res.data);
-        let hotImgArray=new Array();
-        for(var i=0;i<1;++i){
-          hotImgArray[i]="https://creeper.ds918.top"+res.data['items'][i]['img']['url'];
-          console.log(hotImgArray);
-        }
-        that.setData({
-          hotImgUrl: hotImgArray[0]
-        })
+    getApi(getBannerId(2),function(res){
+      let hotImgArray=new Array();
+      for(var i=0;i<1;++i){
+        hotImgArray[i]=app.globalData.creeperUrl+res['items'][i]['img']['url'];
+        console.log(hotImgArray);
       }
+      that.setData({
+        hotImgUrl:hotImgArray
+      })
     })
+    
   },
 
   getBannerImgUrl:function () {
     var that=this;
-    wx.request({
-      // url:'https://creeper.ds918.top/api/v1/banner?id=1',
-      url:'',
-      data:{
-  
-      },
-      header: { 'Content-Type': 'application/json' }, 
-      success(res){
-        console.log(res.data);
-        var data=res.data;
-        let bannerImgArray=new Array();
-        for(var i=0;i<3;++i){
-          bannerImgArray[i]="https://creeper.ds918.top"+res.data['items'][i]['img']['url'];
-        }
-        //测试接口获取值
-        for(var initItem in data){
-          if(initItem == 'items'){  
-              var jValue=data[initItem];
-              console.log(jValue);
-              for(var i=0;i<3;i++){
-                var items=jValue[i];
-                console.log(items);
-              }
-          }
-        }
-
-        that.setData({
-          "adArray.0.src": bannerImgArray[0],
-          "adArray.1.src": bannerImgArray[1],
-          "adArray.2.src": bannerImgArray[2],
-        })
+    getApi(getBannerId(1),function(res){
+      let bannerImgArray=new Array();
+      for(var i=0;i<3;++i){
+        bannerImgArray[i]=app.globalData.creeperUrl+res['items'][i]['img']['url'];
       }
-    })
+      //测试接口获取值
+      for(var initItem in res){
+        if(initItem == 'items'){  
+            var jValue=res[initItem];
+            console.log(jValue);
+            for(var i=0;i<3;i++){
+              var items=jValue[i];
+              console.log(items);
+            }
+          }
+      }
+      that.setData({
+        "adArray.0.src": bannerImgArray[0],
+        "adArray.1.src": bannerImgArray[1],
+        "adArray.2.src": bannerImgArray[2],
+      })
+    });
+    
   },
   
   getlatestData:function(){

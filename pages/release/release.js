@@ -1,5 +1,5 @@
 // pages/release/release.js
-
+import { latestDataMock } from "../../mock/release_data_mock" ;
 
 Page({
 
@@ -17,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
 
+    this.getData();
   },
 
   /**
@@ -66,5 +67,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getData:function(){
+    var that=this;
+    console.log(latestDataMock);
+    that.setData({
+      ItemArray:latestDataMock
+    })
   }
 })

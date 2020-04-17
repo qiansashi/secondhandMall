@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    creeperApi: "https://creeper.ds918.top/api/v1",
+    creeperUrl: "https://creeper.ds918.top"
   }
 })
