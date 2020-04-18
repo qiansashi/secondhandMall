@@ -2,5 +2,6 @@
   "usingComponents": {
     "mp-sticky": "../../sticky/index"
   },
-  "navigationBarTitleText":"闲置管家"
+  "navigationBarTitleText":"闲置管家",
+  "enablePullDownRefresh": true
 }

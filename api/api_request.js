@@ -2,6 +2,7 @@
 const app = getApp();
 // const creeperApi = "https://creeper.ds918.top/api/v1";
 
+//api get
 function getApi(url,callback){
   wx.showLoading({
     title: '管家进行加载中...',
@@ -33,6 +34,7 @@ function getApi(url,callback){
   })
 };
 
+//api post
 function postApi(url,postData,callback){
   wx.showLoading({
     title: '管家进行上传中...',

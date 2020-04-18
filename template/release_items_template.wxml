@@ -5,10 +5,9 @@
     <view class="release_publisher_id">{{item.publisherName}}</view>
   </view>
   <view class="latest_release_detail {{item.id}}">
+    <text class="release_name">{{item.releaseName}}</text>
     <text class="release_detail_text">{{item.detailText}}</text>
     <image class="release_detail_img" src="{{item.DetailImgSrc}}" bindtap="tapToTurnBigger"></image>
     <button class="detail_btn" bindtap="goToDetail">{{detailBtn}}</button>
-    <view class="release_tag">{{item.tag}}</view>
-    <view class="release_date">{{item.date}}</view>
   </view>
 </template>

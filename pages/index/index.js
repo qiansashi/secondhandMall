@@ -1,11 +1,11 @@
 //index.js
 //获取应用实例
 const app = getApp()
-import { latestDataMock } from "../../mock/release_data_mock.js";
-import { indexDataMock } from "../../mock/release_data_mock";
-import {getApi} from "../../api/api_request";
-import {postApi} from "../../api/api_request";
-import {getBannerId} from "../../api/banner_api";
+import { latestDataMock,indexDataMock } from "../../mock/release_data_mock.js";
+import {getApi,postApi} from "../../api/api_request";
+import {getBannerId,getBannerUrl,setBannerUrl} from "../../api/banner_api";
+import {getRecentProductUrl, getRecentProductApi} from "../../api/recent_product_api";
+
 Page({
   data: {
    topBarArray:[{
@@ -55,14 +55,14 @@ Page({
   mpoffsettop: -18,
   mpzindex: 4,
   latestItemArray:[{
-    id: "0",
-    publisherImgSrc:"",
-    publisherName:"",
+    id:0,
+    releaseName: "",
+    DetailImgSrc: "",
     detailText:"",
-    DetailImgSrc:"",
-    tag:"",
-    date:""
-  }]
+    publisherName:"",
+    publisherImgSrc:""
+  }],
+  page:0,
   },
 
   onReady: function () {
@@ -81,7 +81,7 @@ Page({
   pageSelect:function (item) {
     var id = item.currentTarget.dataset.id; 
     console.log(id)
-    //调转到相应页面
+    //跳转到相应页面
     switch(id){
       case "release":
         wx.redirectTo({ 
@@ -123,14 +123,9 @@ Page({
   getHotImgUrl:function () {
     var that=this;
     getApi(getBannerId(2),function(res){
-      let hotImgArray=new Array();
-      for(var i=0;i<1;++i){
-        hotImgArray[i]=app.globalData.creeperUrl+res['items'][i]['img']['url'];
-        console.log(hotImgArray);
-      }
-      that.setData({
-        hotImgUrl:hotImgArray
-      })
+      that.setData(
+        setBannerUrl(getBannerUrl(res,1),1,2)
+      );
     })
     
   },
@@ -138,10 +133,9 @@ Page({
   getBannerImgUrl:function () {
     var that=this;
     getApi(getBannerId(1),function(res){
-      let bannerImgArray=new Array();
-      for(var i=0;i<3;++i){
-        bannerImgArray[i]=app.globalData.creeperUrl+res['items'][i]['img']['url'];
-      }
+      that.setData(
+        setBannerUrl(getBannerUrl(res,3),3,1)
+      );
       //测试接口获取值
       for(var initItem in res){
         if(initItem == 'items'){  
@@ -153,21 +147,34 @@ Page({
             }
           }
       }
-      that.setData({
-        "adArray.0.src": bannerImgArray[0],
-        "adArray.1.src": bannerImgArray[1],
-        "adArray.2.src": bannerImgArray[2],
-      })
     });
     
   },
   
+  onReachBottom: function(){
+    var that=this;
+    that.setData({page:that.data.page+1})
+    getApi(getRecentProductUrl(1,5,that.data.page),function(res){
+      that.setData({
+        latestItemArray:that.data.latestItemArray.concat(getRecentProductApi(res,5))
+      });
+      console.log(that.data.latestItemArray.concat(getRecentProductApi(res,5)));
+    });
+  },
+
   getlatestData:function(){
     var that=this;
-    console.log(latestDataMock);
-    that.setData({
-      latestItemArray:latestDataMock
-    })
+    // console.log(latestDataMock);
+    // that.setData({
+    //   latestItemArray:latestDataMock
+    // })
+    that.setData({page:1})
+    getApi(getRecentProductUrl(1,5,that.data.page),function(res){
+      that.setData({
+        latestItemArray:getRecentProductApi(res,5)
+      });
+    });
+    console.log(getRecentProductUrl(1,5,that.data.page));
   }
 })
 
