@@ -1,0 +1,26 @@
+.movable_area{
+  height: 100%;
+  width: 100%;
+  pad: 0;
+  top: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.movable_view_window{
+  height: 120rpx;
+  width: 120rpx;
+  z-index: 99;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: #2d3449;
+  border-radius: 60rpx;
+  color: white;
+  font-size: 26rpx;
+
+}
