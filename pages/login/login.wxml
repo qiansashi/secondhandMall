@@ -1,0 +1,5 @@
+<!--pages/login/login.wxml-->
+<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="getToken"> 申请令牌 </button>
+<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="testToken"> 鉴权测试 </button>
