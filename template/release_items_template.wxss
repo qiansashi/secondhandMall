@@ -2,7 +2,7 @@
 
 .latest_release_publisher{
   width: 100%;
-  height: 150rpx;
+  height: 115rpx;
   display: flex;
   flex-direction: row;
   
@@ -32,17 +32,22 @@
   height: 350rpx;
 }
 
-.release_detail_text{
-
-  height: 88rpx;
-  width: 80%;
-  margin-left: 75rpx;
-
-  overflow-y: scroll;
+.release_name{
+  margin-left: 25px;
+  height: 75rpx;
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+}
+
+.release_detail_text{
+  width: 80%;
+  height: 50rpx;
+  margin-left: 75rpx;
+  font-size: 25rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .release_detail_img{
@@ -50,8 +55,6 @@
   width: 45%;
 }
 
-.detail_btn{
 
-}
 
 

@@ -8,7 +8,8 @@
     "pages/favourite/favourite",
     "pages/bought/bought",
     "pages/released/released",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",
