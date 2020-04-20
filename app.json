@@ -7,7 +7,8 @@
     "pages/sale/sale",
     "pages/favourite/favourite",
     "pages/bought/bought",
-    "pages/released/released"
+    "pages/released/released",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,7 +37,7 @@
         "text": "发布"
       },
       {
-        "pagePath": "pages/admin/admin",
+        "pagePath": "pages/login/login",
         "text": "我的"
       }
     ]
