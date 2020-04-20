@@ -8,6 +8,7 @@
     "pages/favourite/favourite",
     "pages/bought/bought",
     "pages/released/released",
+    "pages/login/login",
     "pages/details/details"
   ],
   "window": {
@@ -37,7 +38,7 @@
         "text": "发布"
       },
       {
-        "pagePath": "pages/admin/admin",
+        "pagePath": "pages/login/login",
         "text": "我的"
       }
     ]
