@@ -3,20 +3,15 @@
         disabled="{{disabled}}" bindtap="getToken"> 申请令牌 </button>
 <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
         disabled="{{disabled}}" bindtap="testToken"> 鉴权测试 </button>
-<view class="title">请选择要反馈的问题view>
-<view>
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <view>{{array[index]}}view>
-  <image src='../../image/ic_down.svg' class='picker_icon'>image>
-  picker>
-</view>
-<textarea placeholder="请输入您的意见或建议" name="textarea" bindinput="feedbackInput"/>
-<view class="title">图片添加</view>
-<view class='uploadImg'>
-  <view wx:for="{{image}}" wx:key='feedbackImg'>
-    <image src='{{image[index]}}'</image>
-    <button bindtap='delectImg' data-num='{{index}}'>删除</button>
+<view class='upImage'>
+  <view class='upImage-list'>
+    <view class='image-li' bindtap='chooseImage'>
+      <icon type="success" size="40"></icon>
+    </view>
+    <view class='image-li' wx:for="{{imgs}}" wx:key="imgs">
+      <image bindtap='previewImage' data-index='{{index}}' mode='aspectFill' src='{{item}}'></image>
+      <text bindtap='delImage' data-index='{{index}}'>删除</text>
+    </view>
   </view>
-  <image src='../../image/ic_add_pic.svg' bindtap='uploadImg' class='addimg' style='display:{{img_button}}'</image>
+  <button bindtap='upload'>上传图片</button>
 </view>
-<button class="submit" type="{{button_status}}" bindtap="Submit"> 提交</button>

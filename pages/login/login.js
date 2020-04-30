@@ -1,6 +1,6 @@
 // pages/login/login.js
-
-var baseUrl = "https://creeper.ds918.top/api/v1";
+var baseUrl = "http://creeper/";
+var apiUrl = "http://creeper/api/v1/";
 Page({
 
   /**
@@ -13,14 +13,7 @@ Page({
     disabled: false,
     plain: false,
     loading: false,
-
-
-    index: 0,
-    multiIndex: [0, 0],
-    //传到后台的课程分类
-    cname: '',
-    imgs: [],
-    proof: ''
+    imgs: [] ,
   },
 
   getToken:function(){
@@ -32,7 +25,7 @@ Page({
           //发起网络请求
           wx.request({
             
-            url: baseUrl + '/token/user',
+            url: apiUrl + '/token/user',
             method:"POST",
             data: {
               code: res.code
@@ -51,7 +44,7 @@ Page({
 
   testToken:function(){
     wx.request({
-      url: baseUrl + '/testToken',
+      url: apiUrl + '/testToken',
       header:{
         'token': wx.getStorageSync('token')
       },
@@ -71,7 +64,84 @@ Page({
     })
   },
 
-  
+  /**
+   * 选择图片点击
+   */
+  chooseImage:function(){
+    let that = this;
+    wx.chooseImage({
+      // count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths
+        let imgs = that.data.imgs;
+        for(let i =0; i < tempFilePaths.length; i++){
+          imgs.push(tempFilePaths[i])
+        }
+        that.setData({
+          imgs: imgs
+        })
+      }
+    })
+  },
+  /**
+   * 预览图片
+   */
+  previewImage:function(e){
+    let _index = e.currentTarget.dataset.index;
+    let list = this.data.imgs;
+    let current = list[_index];
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接
+      urls: list // 需要预览的图片http链接列表
+    })
+  },
+  /**
+   * 删除图片
+   */
+  delImage:function(e){
+    let _index = e.currentTarget.dataset.index;
+    let previewImage = this.data.imgs;
+    console.log(previewImage)
+    previewImage.splice(_index, 1);
+    this.setData({
+      imgs: previewImage
+    })
+  },
+  /**
+   * 上传图片
+   */
+  upload:function(e){
+    wx.request({
+      url: apiUrl+'addProduct',
+      header:{
+        'token':wx.getStorageSync('token')
+      },
+      method:"POST",
+      data:{
+        name:'三星电视',
+        price:'1999.99',
+        summary:'采用最新的OLED面板，亮度高达1000nit'
+      }
+    });
+    let imgs = this.data.imgs;
+    for (let i = 0; i < imgs.length; i++){
+    wx.uploadFile({
+      url: apiUrl+'addProduct', 
+      filePath: imgs[i],
+      name: 'image',
+      formData: {
+        'user': 'test'
+      },
+      success: function (res) {
+        var data = res.data
+        //do something
+      }
+    })
+    }
+  },
 
 
   /**
