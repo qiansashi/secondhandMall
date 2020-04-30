@@ -12,7 +12,15 @@ Page({
     warnSize: 'default',
     disabled: false,
     plain: false,
-    loading: false
+    loading: false,
+
+
+    index: 0,
+    multiIndex: [0, 0],
+    //传到后台的课程分类
+    cname: '',
+    imgs: [],
+    proof: ''
   },
 
   getToken:function(){
@@ -63,7 +71,7 @@ Page({
     })
   },
 
-
+  
 
 
   /**

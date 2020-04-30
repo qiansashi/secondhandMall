@@ -3,3 +3,20 @@
         disabled="{{disabled}}" bindtap="getToken"> 申请令牌 </button>
 <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
         disabled="{{disabled}}" bindtap="testToken"> 鉴权测试 </button>
+<view class="title">请选择要反馈的问题view>
+<view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view>{{array[index]}}view>
+  <image src='../../image/ic_down.svg' class='picker_icon'>image>
+  picker>
+</view>
+<textarea placeholder="请输入您的意见或建议" name="textarea" bindinput="feedbackInput"/>
+<view class="title">图片添加</view>
+<view class='uploadImg'>
+  <view wx:for="{{image}}" wx:key='feedbackImg'>
+    <image src='{{image[index]}}'</image>
+    <button bindtap='delectImg' data-num='{{index}}'>删除</button>
+  </view>
+  <image src='../../image/ic_add_pic.svg' bindtap='uploadImg' class='addimg' style='display:{{img_button}}'</image>
+</view>
+<button class="submit" type="{{button_status}}" bindtap="Submit"> 提交</button>
