@@ -1,0 +1,17 @@
+<!--pages/login/login.wxml-->
+<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="getToken"> 申请令牌 </button>
+<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="testToken"> 鉴权测试 </button>
+<view class='upImage'>
+  <view class='upImage-list'>
+    <view class='image-li' bindtap='chooseImage'>
+      <icon type="success" size="40"></icon>
+    </view>
+    <view class='image-li' wx:for="{{imgs}}" wx:key="imgs">
+      <image bindtap='previewImage' data-index='{{index}}' mode='aspectFill' src='{{item}}'></image>
+      <text bindtap='delImage' data-index='{{index}}'>删除</text>
+    </view>
+  </view>
+  <button type="primary" bindtap='upload'>上传图片</button>
+</view>

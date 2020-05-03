@@ -1,0 +1,51 @@
+/* pages/login/login.wxss */
+/** wxss **/
+/** 修改button默认的点击态样式类**/
+button {margin: 10px;}
+Page{
+  background-color: aqua;
+}
+
+.upImage {
+  padding: 10px;
+  margin-top: 10px;
+}
+.upImage-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.image-li {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: calc((100vw - 50px) / 4);
+  height: calc((100vw - 50px) / 4);
+
+  overflow: hidden;
+  position: relative;
+}
+.image-li:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eee;
+}
+.image-li:first-child view {
+  font-size: 100rpx;
+}
+.image-li:nth-child(4n) {
+  margin-right: 0;
+}
+.image-li image {
+  width: 100%;
+  height: 100%;
+}
+.image-li text {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 24rpx;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
