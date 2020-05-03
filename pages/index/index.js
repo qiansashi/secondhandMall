@@ -63,6 +63,12 @@ Page({
     publisherImgSrc:""
   }],
   page:0,
+  topWelcomeText: "欢迎使用闲置管家",
+  topText:"帮你的闲置快速换成钱哦~",
+  movableViewX:300,
+  movableViewY:450,
+  scrollTop: 0 ,
+  damping:100
   },
 
   onReady: function () {
@@ -155,11 +161,42 @@ Page({
     var that=this;
     that.setData({page:that.data.page+1})
     getApi(getRecentProductUrl(1,5,that.data.page),function(res){
+      wx.showToast({
+        title: '加载成功！',
+        duration:1500
+      })
       that.setData({
         latestItemArray:that.data.latestItemArray.concat(getRecentProductApi(res,5))
       });
       console.log(that.data.latestItemArray.concat(getRecentProductApi(res,5)));
     });
+  },
+
+  onPullDownRefresh:function(){
+    wx.showNavigationBarLoading();
+    var that=this;
+    that.getHotImgUrl();
+    that.getBannerImgUrl();
+    that.getlatestData();
+    that.setData({
+      topWelcomeText:"闲置管家努力为您加载中...",
+      topText:""
+    });
+    wx.stopPullDownRefresh({
+      complete: (res) => {
+        wx.hideNavigationBarLoading(); 
+        that.setData({
+          topWelcomeText:"欢迎使用闲置管家",
+          topText:"帮你的闲置快速换成钱哦~"
+        })
+        wx.showToast({
+          title: '刷新成功！',
+          icon:"success",
+          duration:1700
+        })
+      },
+    })
+    
   },
 
   getlatestData:function(){
@@ -175,6 +212,43 @@ Page({
       });
     });
     console.log(getRecentProductUrl(1,5,that.data.page));
-  }
+  },
+
+  goToDetail:function(e){
+    var that=this;
+    var productId=that.data.latestItemArray[e.currentTarget.dataset.index]["id"];
+    console.log(productId);
+    try{
+      wx.setStorageSync('productId', productId);
+      wx.redirectTo({
+        url: '../details/details',
+      })
+    }catch(e){
+      console.log(e);
+    }
+  },
+
+  onPageScroll:function(e){
+    var that=this;
+    if(e.scrollTop > that.data.scrollTop || e.scrollTop == wx.getSystemInfoSync().windowHeight){
+      that.setData({
+        movableViewY:that.data.movableViewY+4.1
+      });
+    }else{
+      that.setData({
+        movableViewY:that.data.movableViewY-4.1
+      })
+    }
+    setTimeout(function () {
+      that.setData({
+        scrollTop: e.scrollTop
+      })
+    }, 0)
+    
+  },
+
+  postItems:function(){
+
+  },
 })
 

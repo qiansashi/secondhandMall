@@ -1,5 +1,6 @@
 @import "../../template/release_items_template.wxss";
 @import "../../template/wrapper.wxss";
+@import "../../template/movable_view.wxss";
 
 .top_color_block{
   width: 100%;
@@ -7,6 +8,22 @@
   background-size: 120rpx;
   background-color: #2d3449;
   position: absolute;
+}
+
+.top_welcome_text{
+  color: white;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-left: 50rpx;
+  margin-top: 13rpx;
+
+}
+
+.top_text{
+  color: grey;
+  margin-block-start: 30rpx;
+  margin-inline-start: 45rpx;
+  
 }
 
 .top_bar_container{
@@ -101,26 +118,44 @@
 }
 
 .hot_msg{
+  display: flex;
   background-color: white;
-  height: 180rpx;
+  height: 110rpx;
+  width: 95%;
+}
+
+.hot_title{
+  color: #2d3449;
+  background-color: white;
+  height: 90rpx;
   border-color: white;
   border-radius: 20rpx;
   border-style: solid;
   margin-top: 5rpx;
   z-index: 2;
   box-shadow: 0rpx 0rpx 8rpx grey;
-  width: 95%;
-}
+  width: 25%;
 
-.hot_title{
-  color: #2d3449;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .hot_release{
   background-size: 100% auto; 
   background-repeat: no-repeat; 
-  height: 133rpx;
-  width: 100%;
+  background-color: white;
+  height: 90rpx;
+  border-color: white;
+  border-radius: 20rpx;
+  border-style: solid;
+  margin-top: 5rpx;
+  z-index: 2;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+  width: 72%;
+  color: transparent;
 
 }
 
@@ -134,7 +169,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 140rpx;
+  height: 130rpx;
 }
 
 .float_tag_latest{
@@ -169,5 +204,22 @@
   border-style: solid;
   box-shadow: 0rpx 0rpx 8rpx grey;
   margin-bottom: 16rpx;
+  z-index: 3;
+}
+
+.detail_btn{
+  position: absolute;
+  right: 0;
+  height: 465rpx;
+  width: 70rpx;
+  color: transparent;
+  margin-right: 19rpx;
+  border-radius: 20rpx;
+}
+
+.detail_btn::after{
+  border: none;
+  border-color: transparent;
+  z-index: 1;
 }
 
