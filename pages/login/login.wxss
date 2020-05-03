@@ -19,8 +19,7 @@ Page{
   margin-bottom: 10px;
   width: calc((100vw - 50px) / 4);
   height: calc((100vw - 50px) / 4);
-  border: 1px solid #fff;
-  border-radius: 10px;
+
   overflow: hidden;
   position: relative;
 }
@@ -49,9 +48,4 @@ Page{
   font-size: 24rpx;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-}
-.upImage button{
-  background: rgba(0, 0, 0, 0);
-  color: #fff;
-  border: 1px solid #fff;
 }

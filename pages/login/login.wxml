@@ -13,5 +13,5 @@
       <text bindtap='delImage' data-index='{{index}}'>删除</text>
     </view>
   </view>
-  <button bindtap='upload'>上传图片</button>
+  <button type="primary" bindtap='upload'>上传图片</button>
 </view>

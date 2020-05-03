@@ -112,8 +112,12 @@ Page({
   },
   /**
    * 上传图片
+   * 先携带token上传name，price，summary，成功则返回商品编号pid
+   * 再携带token和pid上传照片，微信uploadFile一次只能上传一张，所以循环上传
+   * 
    */
   upload:function(e){
+    let imgs = this.data.imgs;
     wx.request({
       url: apiUrl+'addProduct',
       header:{
@@ -124,23 +128,39 @@ Page({
         name:'三星电视',
         price:'1999.99',
         summary:'采用最新的OLED面板，亮度高达1000nit'
+      },
+      success(res){
+        var pid = res.data['pid'];
+        console.log(pid);
+        
+        for (let i = 0; i < imgs.length; i++){
+          wx.uploadFile({
+            url: apiUrl+'upload', 
+            filePath: imgs[i],
+            header:{
+              'token':wx.getStorageSync('token')//验证
+            },
+            formData:{
+              'pid': pid //pid  商品编号
+            },
+            name: 'image',//name必须为image
+            success: function (res) {
+              var data = res.data;
+              console.log(data)
+              //上传成功
+            },
+            fail(){
+              //上传失败
+            }
+          })
+        }
+      },
+      fail(){
+        //上传失败
       }
     });
-    let imgs = this.data.imgs;
-    for (let i = 0; i < imgs.length; i++){
-    wx.uploadFile({
-      url: apiUrl+'addProduct', 
-      filePath: imgs[i],
-      name: 'image',
-      formData: {
-        'user': 'test'
-      },
-      success: function (res) {
-        var data = res.data
-        //do something
-      }
-    })
-    }
+    
+
   },
 
 
