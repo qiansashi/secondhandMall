@@ -1,6 +1,6 @@
 // pages/login/login.js
-var baseUrl = "http://creeper/";
-var apiUrl = "http://creeper/api/v1/";
+var baseUrl = "https://creeper.ds918.top/";
+var apiUrl = "https://creeper.ds918.top/api/v1/";
 Page({
 
   /**
@@ -25,7 +25,7 @@ Page({
           //发起网络请求
           wx.request({
             
-            url: apiUrl + '/token/user',
+            url: apiUrl + 'token/user',
             method:"POST",
             data: {
               code: res.code
