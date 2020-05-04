@@ -15,3 +15,22 @@
   </view>
   <button type="primary" bindtap='upload'>上传图片</button>
 </view>
+
+<form bindsubmit="formSubmit">
+<input type="text" name="liuyantext" placeholder='输入留言内容' class="input-style"/>
+<button formType="submit" class="btn">留言</button>
+</form>
+
+<view wx:for="{{re}}" wx:key="re">
+  <view class="result">{{item.result}}</view>
+</view>
+<view style="text-align:center;font-size:14px;color:#ccc;margin-top:20px;">以下是留言内容</view>
+<view wx:for="{{commentlist}}" wx:key="commentlist" class="liuyanview">
+  <view class="headimg"><image src="{{'https://creeper.ds918.top/'+item.userinfo.img_url}}"></image></view>
+  <view class="nickname_liuyantext">
+    <view class="nickname">{{item.userinfo.nickname}} <view class="time">{{item.create_time}}</view></view>
+    <view class="text">{{item.comment}}</view>
+  </view>
+  <!-- 占位符 -->
+  <view style="width:100%;height:10px;"></view>
+</view>

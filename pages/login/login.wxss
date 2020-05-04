@@ -2,9 +2,6 @@
 /** wxss **/
 /** 修改button默认的点击态样式类**/
 button {margin: 10px;}
-Page{
-  background-color: aqua;
-}
 
 .upImage {
   padding: 10px;
@@ -48,4 +45,63 @@ Page{
   font-size: 24rpx;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
+}
+
+
+.input-style{
+  width: 90%;
+  height: 50px;
+  border:1px solid #ccc;
+  margin:10px auto;
+}
+
+.btn{
+  width: 88%;
+  margin:5px auto;
+}
+
+.liuyanview{
+  width: 90%;
+  margin: 10px auto;
+}
+
+.result{
+  text-align: center;
+  font-size: 14px;
+  color: #f00;
+  margin-top: 20px;
+}
+
+.headimg{
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+}
+
+.headimg image{
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+}
+
+.nickname_liuyantext{
+  width: calc(100% - 55px);
+  float: right;
+  margin-top:-45px;
+}
+
+.nickname_liuyantext .nickname{
+  font-size: 15px;
+  color: #999;
+}
+
+.nickname_liuyantext .nickname .time{
+  font-size: 11px;
+  color: #999;
+  float: right;
+}
+
+.nickname_liuyantext .text{
+  font-size: 16px;
+  color: #666;
 }
