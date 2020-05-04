@@ -6,8 +6,7 @@
   </view>
   <view class="latest_release_detail {{item.id}}">
     <text class="release_name">{{item.releaseName}}</text>
-    <text class="release_detail_text">{{item.detailText}}</text>
+    <text class="release_detail_text" bindtap="getMore">{{item.detailText}}</text>
     <image class="release_detail_img" src="{{item.DetailImgSrc}}" bindtap="tapToTurnBigger"></image>
-    <button class="detail_btn" bindtap="goToDetail">{{detailBtn}}</button>
   </view>
 </template>

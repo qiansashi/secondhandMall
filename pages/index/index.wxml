@@ -1,51 +1,69 @@
 <!--index.wxml-->
 <import src="../../template/release_items_template.wxml" />
 <view class="wrapper">
-  <view class="top_color_block"></view>
-  <view class="top_bar_container">
-    <view class="top_bar_item" wx:for="{{topBarArray}}" wx:key="id">
-      <block class="top_bar"> 
-        <button class="top_bar_btn" bindtap="pageSelect" data-id="{{item.id}}">
-        <image class="top_bar_img" src="{{item.topBarImg}}">
-        </image>
-        {{item.topBarBtn}}</button>
-        <text class="top_bar_icon">{{item.icon}}</text>
-      </block>
+  <movable-area class="movable_area">
+    <view class="top_color_block">
+      <view class="top_welcome_text">{{topWelcomeText}}</view>
+      <view class="top_text">{{topText}}</view>
     </view>
-  </view>
-  <view class="swiper_container">
-    <swiper class="swipers" 
-    autoplay="{{autoplay}}" 
-    current="{{currentSwiper}}" 
-    bindchange="swiperChange"
-    >
-      <view wx:for="{{adArray}}" wx:key="id">
-        <swiper-item>
-          <image class="scrollImg" src="{{item.src}}" bindtap="tapBanner">{{item.num}}</image>
-        </swiper-item>
-      </view>
-    </swiper>
-    <!--重置小圆点的样式  -->
-    <view class="dots">  
-        <block wx:for="{{adArray}}" wx:key="index">  
-            <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>  
-        </block>  
-    </view>  
-  </view>
-  <view class="background_block1"></view>
-  <view class="hot_msg">
-    <text class="hot_title">近期热门</text>
-    <view class="hot_release" style="background-image: url({{hotImgUrl}});">hot_pic</view>
-  </view>
-  <view class="background_block2"></view>
-  <mp-sticky class="float_container" offset-top="{{mpoffsettop}}" z-index="{{mpzindex}}">
-    <view class="float_tag_latest">
-      <view class="float_item" wx:for="{{tagArray}}" wx:key="index">{{item.tagName}}
-        <view class="float_line{{item.id}}" style="color:{{item.line_color}}" bindtap="{{}}"></view>
+    <view class="top_bar_container">
+      <view class="top_bar_item" wx:for="{{topBarArray}}" wx:key="id">
+        <block class="top_bar"> 
+          <button class="top_bar_btn" bindtap="pageSelect" data-id="{{item.id}}">
+          <image class="top_bar_img" src="{{item.topBarImg}}">
+          </image>
+          {{item.topBarBtn}}</button>
+          <text class="top_bar_icon">{{item.icon}}</text>
+        </block>
       </view>
     </view>
-  </mp-sticky>
-  <view class="latest_release_items" wx:for="{{latestItemArray}}" wx:key="id">
-    <template is="release_items_template" data="{{item}}" ></template>
-  </view>
+    <view class="swiper_container">
+      <swiper class="swipers" 
+      autoplay="{{autoplay}}" 
+      current="{{currentSwiper}}" 
+      bindchange="swiperChange"
+      >
+        <view wx:for="{{adArray}}" wx:key="id">
+          <swiper-item>
+            <image class="scrollImg" src="{{item.src}}" bindtap="tapBanner">{{item.num}}</image>
+          </swiper-item>
+        </view>
+      </swiper>
+      <!--重置小圆点的样式-->
+      <view class="dots">  
+          <block wx:for="{{adArray}}" wx:key="index">  
+              <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>  
+          </block>  
+      </view>  
+    </view>
+    <view class="background_block1"></view>
+    <view class="hot_msg">
+      <view class="hot_title">近期热门</view>
+      <view class="hot_release" style="background-image: url({{hotImgUrl}});">hot_pic</view>
+    </view>
+    <view class="background_block2"></view>
+    <mp-sticky class="float_container" offset-top="{{mpoffsettop}}" z-index="{{mpzindex}}">
+      <view class="float_tag_latest">
+        <view class="float_item" wx:for="{{tagArray}}" wx:key="index">{{item.tagName}}
+          <view class="float_line{{item.id}}" style="color:{{item.line_color}}" bindtap="{{}}"></view>
+        </view>
+      </view>
+    </mp-sticky>
+    <!--这边实现的懒加载瀑布流数据量大会变卡，考虑用<recycle-view>重写-->
+    <view class="latest_release_items" 
+          wx:for="{{latestItemArray}}"  
+          data-index="{{index}}" 
+          wx:key="id" 
+          bindtap="goToDetail">
+      <template is="release_items_template" data="{{item}}" ></template>
+    </view>
+    <movable-view class="movable_view_window"  
+    x="{{movableViewX}}" 
+    y="{{movableViewY}}" 
+    direction="all" 
+    bindtap="postItems"
+    damping="{{damping}}">
+    发布闲置
+    </movable-view>
+  </movable-area>
 </view>

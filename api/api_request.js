@@ -27,8 +27,9 @@ function getApi(url,callback){
       })
       wx.showToast({
         title: '加载失败，请稍后重试！',
+        icon:fail,
         mask: true,
-        duration: 500
+        duration: 1500
       })
     }
   })
@@ -58,8 +59,9 @@ function postApi(url,postData,callback){
       })
       wx.showToast({
         title: '上传失败，请稍后重试！',
+        icon:fail,
         mask: true,
-        duration: 500
+        duration: 1500
       })
     }
   })
