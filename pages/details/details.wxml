@@ -12,7 +12,7 @@
   <view class="detail">{{detail}}</view>
   <view class="img_array">
     <view class="img_list" wx:for="{{imgArray}}" wx:key="index">
-      <image class="img {{item.imgId}}" src="{{item.imgSrc}}" data-index='{{index}}' bindtap='previewImage'></image>
+      <view class="img {{item.imgId}}" style="background-image: url({{item.imgSrc}})" data-index='{{index}}' bindtap='previewImage'></view>
     </view>
   </view>
   <form bindsubmit="formSubmit" class="comment_form">

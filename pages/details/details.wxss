@@ -76,6 +76,7 @@
 .img_array{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   border: white;
   width: 98%;
   display: flex;
@@ -92,8 +93,10 @@
 }
 
 .img{
-  width: 100%;
   height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .comment_form{
@@ -118,7 +121,7 @@
   margin:5px auto;
   height: 54rpx;
   margin-left: 490rpx;
-  font-size: 10%;
+  font-size: 25rpx;
   margin-top: -50rpx;
   border-radius: 45rpx;
 

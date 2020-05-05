@@ -34,7 +34,7 @@
 
 .release_name{
   margin-left: 25px;
-  height: 75rpx;
+  height: 60rpx;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -42,7 +42,7 @@
 
 .release_detail_text{
   width: 80%;
-  height: 50rpx;
+  height: 68rpx;
   margin-left: 75rpx;
   font-size: 25rpx;
   overflow: hidden;
@@ -50,10 +50,15 @@
   text-overflow: ellipsis;
 }
 
-.release_detail_img{
+.img_wrapper{
   margin-left: 75rpx;
-  width: 45%;
+  height: 68%;
+  width: 55%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
 }
+
 
 .release_time{
   font-size: 25rpx;

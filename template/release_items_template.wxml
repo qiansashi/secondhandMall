@@ -7,7 +7,7 @@
   <view class="latest_release_detail {{item.id}}">
     <text class="release_name">{{item.releaseName}}</text>
     <text class="release_detail_text" bindtap="getMore">{{item.detailText}}</text>
-    <image class="release_detail_img" src="{{item.DetailImgSrc}}" bindtap="tapToTurnBigger"></image>
+    <view class="img_wrapper" style="background-image:url({{item.DetailImgSrc}})" bindtap="tapToTurnBigger"></view>
     <text class="release_time">{{item.releaseTime}}</text>
   </view>
 </template>
