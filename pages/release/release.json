@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-sticky": "../../sticky/index"
+  },
   "navigationBarTitleText":"闲置发布"
 }

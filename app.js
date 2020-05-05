@@ -36,6 +36,7 @@ App({
   globalData: {
     userInfo: null,
     creeperApi: "https://creeper.ds918.top/api/v1",
-    creeperUrl: "https://creeper.ds918.top"
+    creeperUrl: "https://creeper.ds918.top",
+    aboutUs:"sues上海计算机应用能力大赛参赛作品©版权所有"
   }
 })

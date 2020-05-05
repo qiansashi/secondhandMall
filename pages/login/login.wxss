@@ -1,11 +1,91 @@
 /* pages/login/login.wxss */
-/** wxss **/
-/** 修改button默认的点击态样式类**/
-.button-hover {
-  background-color: red;
+@import "../../template/wrapper.wxss";
+
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 350rpx;
+  background-color:#2d3449;
 }
-/** 添加自定义button点击态样式类**/
-.other-button-hover {
-  background-color: blue;
+
+/* .userinfo{
+  border-color: white;
+  border-radius: 20rpx;
+  border-style: solid;
+  z-index: 2;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+} */
+
+.userAvatar{
+  border-radius: 60rpx;
+  width: 125rpx;
+  height: 125rpx;
+  overflow: hidden;
+  margin-left: 45rpx;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top:80rpx;
 }
-button {margin: 10px;}
+
+.userImg{
+  height: 100%;
+  width: 100%;
+}
+
+.userNickName,.userGender{
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 45rpx;
+  margin-top: -60rpx;
+  color: white;
+
+}
+
+.contact_us1{
+  width: 96%;
+  border-color: white;
+  border-radius: 5rpx;
+  border-style: solid;
+  z-index: 2;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+}
+
+.contact_us2{
+  margin-top: 2rpx;
+  width: 96%;
+  border-color: white;
+  border-radius: 6rpx;
+  border-style: solid;
+  z-index: 2;
+  box-shadow: 0rpx 6rpx 8rpx grey;
+}
+
+.login_btn{
+  margin-top: 25rpx;
+  border-radius: 80rpx;
+  text-align: center;
+  height: 65rpx;
+  width: 350rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: green;
+}
+
+span.otherway{
+  margin-top: 400rpx;
+  font-family: 微软雅宋;
+  font-size: 55%;
+  color: #979496;
+}
+
+.about_us{
+  margin-top: 15rpx;
+  font-size: 20rpx;
+}
+

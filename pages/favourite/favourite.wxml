@@ -1,2 +1,12 @@
 <!--pages/favourite/favourite.wxml-->
-<text>pages/favourite/favourite.wxml</text>
+<import src="../../template/release_items_template.wxml" />
+<view class="wrapper">
+  <view class="release_items" 
+        wx:for="{{ItemArray}}"  
+        data-index="{{index}}" 
+        wx:key="id" 
+        bindtap="goToDetail">
+    <template is="release_items_template" data="{{item}}" ></template>
+  </view>
+</view>
+

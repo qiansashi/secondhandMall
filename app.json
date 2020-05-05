@@ -9,7 +9,9 @@
     "pages/bought/bought",
     "pages/released/released",
     "pages/login/login",
-    "pages/details/details"
+    "pages/details/details",
+    "pages/publish/publish",
+    "pages/aboutus/aboutus"
   ],
   "window": {
     "backgroundTextStyle": "light",

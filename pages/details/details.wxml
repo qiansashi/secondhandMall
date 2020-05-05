@@ -1,2 +1,37 @@
 <!--pages/details/details.wxml-->
-<text>{{productId}}</text>
+<view class="wrapper">
+  <view class="title">
+    <view class="item_name">{{name}}</view>
+    <view class="item_price">{{price}}元</view>
+    <view class="release_time">{{time}}</view>
+  </view>
+  <view class="favourite" bindtap="addMyFavourite">收藏</view>
+  <view class="background_block"></view>
+  <view class="nickName">发布者：{{nickName}}</view>
+  <view class="detail_title">详细描述</view>
+  <view class="detail">{{detail}}</view>
+  <view class="img_array">
+    <view class="img_list" wx:for="{{imgArray}}" wx:key="index">
+      <image class="img {{item.imgId}}" src="{{item.imgSrc}}" data-index='{{index}}' bindtap='previewImage'></image>
+    </view>
+  </view>
+  <form bindsubmit="formSubmit" class="comment_form">
+    <input type="text" value="{{commentInput}}" placeholder='  输入留言内容' maxlength="120" class="comment_input" bindinput="inputComment"/>
+    <button formType="submit" class="btn">留言</button>
+  </form>
+
+  <view wx:for="{{commentArray}}" wx:key="index">
+    <view class="result">{{item.result}}</view>
+  </view>
+  <view class="comment_block">以下是留言内容</view>
+  <view wx:for="{{commentlist}}" wx:key="index" class="commentlist">
+    <view class="headimg">
+      <image class="usr_img" src="{{'https://creeper.ds918.top/'+item.userinfo.img_url}}"></image>
+    </view>
+    <view class="nickname_liuyantext">
+      <view class="nickname">{{item.userinfo.nickname}} <view class="time">{{item.create_time}}</view></view>
+      <view class="text">{{item.comment}}</view>
+    </view>
+    <view></view>
+  </view>
+</view>

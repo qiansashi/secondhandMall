@@ -8,5 +8,6 @@
     <text class="release_name">{{item.releaseName}}</text>
     <text class="release_detail_text" bindtap="getMore">{{item.detailText}}</text>
     <image class="release_detail_img" src="{{item.DetailImgSrc}}" bindtap="tapToTurnBigger"></image>
+    <text class="release_time">{{item.releaseTime}}</text>
   </view>
 </template>

@@ -1,5 +1,23 @@
 <!--pages/login/login.wxml-->
-<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
-        disabled="{{disabled}}" bindtap="getToken"> 申请令牌 </button>
-<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
-        disabled="{{disabled}}" bindtap="testToken"> 鉴权测试 </button>
+<view class="wrapper">
+  <view class="userinfo">
+    <view  class="userAvatar">
+      <open-data class="userImg" type="userAvatarUrl"></open-data>
+    </view>
+    <open-data class="userNickName" type="userNickName"></open-data>
+    <open-data class="userGender"type="userGender" lang="zh_CN"></open-data>
+  </view>
+  <view class="contact_us1" bindtap="tap2ContactUs">关于我们</view>
+  <view class="contact_us2" bindtap="tap2ContactServer">联系客服</view>
+  <span class="otherway">———使用以下方式登录————————————</span>
+  <button
+  class="login_btn"
+  type="primary" 
+  size="{{primarySize}}" 
+  loading="{{loading}}"
+  plain="{{plain}}"      
+  disabled="{{disabled}}" 
+  bindtap="getToken"> 微信授权登录 </button>
+  <view class="about_us">{{aboutUs}}</view>
+</view>
+

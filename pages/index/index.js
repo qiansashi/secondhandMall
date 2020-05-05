@@ -1,10 +1,10 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 import { latestDataMock,indexDataMock } from "../../mock/release_data_mock.js";
 import {getApi,postApi} from "../../api/api_request";
 import {getBannerId,getBannerUrl,setBannerUrl} from "../../api/banner_api";
-import {getRecentProductUrl, getRecentProductApi} from "../../api/recent_product_api";
+import {getRecentProductUrl, getRecentProductApi,JudgeSum} from "../../api/recent_product_api";
 
 Page({
   data: {
@@ -60,15 +60,17 @@ Page({
     DetailImgSrc: "",
     detailText:"",
     publisherName:"",
-    publisherImgSrc:""
+    publisherImgSrc:"",
+    releaseTime:""
   }],
   page:0,
   topWelcomeText: "欢迎使用闲置管家",
   topText:"帮你的闲置快速换成钱哦~",
   movableViewX:300,
-  movableViewY:450,
+  movableViewY:10,
   scrollTop: 0 ,
-  damping:100
+  damping:100,
+  sum:0,
   },
 
   onReady: function () {
@@ -82,6 +84,7 @@ Page({
     this.getHotImgUrl();
     this.getBannerImgUrl();
     this.getlatestData();
+    wx.setStorageSync('favourite', []);
   },
 
   pageSelect:function (item) {
@@ -159,17 +162,25 @@ Page({
   
   onReachBottom: function(){
     var that=this;
-    that.setData({page:that.data.page+1})
-    getApi(getRecentProductUrl(1,5,that.data.page),function(res){
+    console.log(that.data.sum);
+    if(that.data.page>that.data.sum){
       wx.showToast({
-        title: '加载成功！',
-        duration:1500
+        title: '到底了哦~',
       })
-      that.setData({
-        latestItemArray:that.data.latestItemArray.concat(getRecentProductApi(res,5))
+    }else{
+      that.setData({page:that.data.page+1})
+      getApi(getRecentProductUrl(1,5,that.data.page),function(res){
+        wx.showToast({
+          title: '加载成功！',
+          duration:1500
+        })
+        that.setData({
+          latestItemArray:that.data.latestItemArray.concat(getRecentProductApi(res,5))
+        });
+        console.log(that.data.latestItemArray.concat(getRecentProductApi(res,5)));
       });
-      console.log(that.data.latestItemArray.concat(getRecentProductApi(res,5)));
-    });
+    }
+    
   },
 
   onPullDownRefresh:function(){
@@ -208,10 +219,11 @@ Page({
     that.setData({page:1})
     getApi(getRecentProductUrl(1,5,that.data.page),function(res){
       that.setData({
-        latestItemArray:getRecentProductApi(res,5)
+        latestItemArray:getRecentProductApi(res,5),
+        sum:JudgeSum(res,5)
       });
     });
-    console.log(getRecentProductUrl(1,5,that.data.page));
+    console.log("RecentProductUrl:"+getRecentProductUrl(1,5,that.data.page));
   },
 
   goToDetail:function(e){
@@ -220,7 +232,7 @@ Page({
     console.log(productId);
     try{
       wx.setStorageSync('productId', productId);
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../details/details',
       })
     }catch(e){
@@ -230,25 +242,27 @@ Page({
 
   onPageScroll:function(e){
     var that=this;
-    if(e.scrollTop > that.data.scrollTop || e.scrollTop == wx.getSystemInfoSync().windowHeight){
-      that.setData({
-        movableViewY:that.data.movableViewY+4.1
-      });
-    }else{
-      that.setData({
-        movableViewY:that.data.movableViewY-4.1
-      })
-    }
-    setTimeout(function () {
-      that.setData({
-        scrollTop: e.scrollTop
-      })
-    }, 0)
+    // if(e.scrollTop > that.data.scrollTop || e.scrollTop == wx.getSystemInfoSync().windowHeight){
+    //   that.setData({
+    //     movableViewY:that.data.movableViewY+4.1
+    //   });
+    // }else{
+    //   that.setData({
+    //     movableViewY:that.data.movableViewY-4.1
+    //   })
+    // }
+    // setTimeout(function () {
+    //   that.setData({
+    //     scrollTop: e.scrollTop
+    //   })
+    // }, 0)
     
   },
 
   postItems:function(){
-
+    wx.navigateTo({
+      url: '../publish/publish',
+    })
   },
 })
 

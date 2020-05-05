@@ -1,1 +1,14 @@
 /* pages/favourite/favourite.wxss */
+@import "../../template/release_items_template.wxss";
+@import "../../template/wrapper.wxss";
+
+.release_items{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  border-color: white;
+  border-radius: 20rpx;
+  border-style: solid;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+  margin-bottom: 16rpx;
+}

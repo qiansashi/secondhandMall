@@ -1,1 +1,183 @@
 /* pages/details/details.wxss */
+@import "../../template/wrapper.wxss";
+
+.title{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-color: white;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  background-color: #2d3449;
+  height: 200rpx;
+
+}
+
+.favourite{
+  position: absolute;
+  top: 40rpx;
+  right: 40rpx;
+  color: white;
+}
+
+.item_name{
+  font-size: 55rpx;
+  color: white;
+  margin-left: 65rpx;
+}
+
+.item_price{
+  font-size: 45rpx;
+  color: white;
+  margin-left: 120rpx;
+  margin-bottom: 23rpx;
+}
+
+.detail{
+  font-size: 27rpx;
+}
+
+.release_time{
+  font-size: 25rpx;
+  color: white;
+  margin-left: 30rpx;
+}
+
+.background_block{
+  width: 100%;
+  height: 30rpx;
+  background-color: #f1f1f1;
+}
+
+.nickName{
+  border: white;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  border-color: white;
+  border-radius: 20rpx;
+  border-style: solid;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+  margin-bottom: 16rpx;
+}
+
+.detail{
+  border: white;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  border-color: white;
+  border-radius: 20rpx;
+  border-style: solid;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+  margin-bottom: 16rpx;
+}
+
+.img_array{
+  display: flex;
+  flex-direction: row;
+  border: white;
+  width: 98%;
+  display: flex;
+  border-color: white;
+  border-radius: 20rpx;
+  border-style: solid;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+  margin-bottom: 16rpx;
+}
+
+.img_list{
+  width:280rpx;
+  height: 280rpx;
+}
+
+.img{
+  width: 100%;
+  height: 100%;
+}
+
+.comment_form{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 10px;
+}
+
+.commentlist{
+  width: 92%;
+}
+
+.comment_input{
+  border-radius: 30rpx;
+  width: 80%;
+  background-color: #eee;
+}
+
+.btn{
+  width: 32%;
+  margin:5px auto;
+  height: 54rpx;
+  margin-left: 490rpx;
+  font-size: 10%;
+  margin-top: -50rpx;
+  border-radius: 45rpx;
+
+}
+
+.btn::after{
+  border: black;
+}
+
+.liuyanview{
+  width: 90%;
+  margin: 10px auto;
+}
+
+
+.headimg{
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  margin-top: 20rpx;
+}
+
+.time{
+  width: 125rpx;
+  margin-top: 20rpx;
+
+}
+
+.headimg image{
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+}
+
+.nickname_liuyantext{
+  width: calc(100% - 55px);
+  float: right;
+  margin-top:-45px;
+}
+
+.nickname_liuyantext .nickname{
+  font-size: 15px;
+  color: #999;
+}
+
+.nickname_liuyantext .nickname .time{
+  font-size: 11px;
+  color: #999;
+  float: right;
+}
+
+.nickname_liuyantext .text{
+  font-size: 16px;
+  color: #666;
+}
+
+.comment_block{
+  text-align:center;
+  font-size:14px;
+  color:#ccc;
+  margin-top:20px;
+}

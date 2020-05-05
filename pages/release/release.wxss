@@ -12,3 +12,15 @@
   box-shadow: 0rpx 0rpx 8rpx grey;
   margin-bottom: 16rpx;
 }
+
+.search_input{
+  border-radius: 30rpx;
+  width: 100%;
+  background-color: #eee;
+}
+
+.search_tab{
+  margin-top: 5rpx;
+  width:95%;
+  margin-bottom: 20rpx;
+}

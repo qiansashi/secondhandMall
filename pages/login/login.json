@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "用户登录",
+  "disableScroll": true
 }

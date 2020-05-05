@@ -55,6 +55,11 @@
   width: 45%;
 }
 
+.release_time{
+  font-size: 25rpx;
+  margin-left: 65rpx;
+}
+
 
 
 

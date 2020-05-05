@@ -1,7 +1,14 @@
 <!--pages/release/release.wxml-->
 <import src="../../template/release_items_template.wxml" />
 <view class="wrapper">
-  <view class="release_items" wx:for="{{ItemArray}}" wx:key="id">
-    <template is="release_items_template" data="{{item}}"></template>
+  <mp-sticky class="search_tab" offset-top="{{mpoffsettop}}" z-index="{{mpzindex}}">
+    <input class="search_input" type="text"  placeholder=" 请输入物品名称" placeholder-class="search_placeholder" bindconfirm='getItemInfo' value="{{item_value}}"  bindinput="bindItemValue"/>
+  </mp-sticky> 
+  <view class="release_items" 
+        wx:for="{{ItemArray}}"  
+        data-index="{{index}}" 
+        wx:key="id" 
+        bindtap="goToDetail">
+    <template is="release_items_template" data="{{item}}" ></template>
   </view>
 </view>

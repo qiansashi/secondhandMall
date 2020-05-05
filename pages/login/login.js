@@ -1,6 +1,8 @@
 // pages/login/login.js
 
-var baseUrl = "https://creeper.ds918.top/api/v1";
+import {getApi,postApi,testToken} from "../../api/api_request";
+const tokenApi= '/token/user';
+const app=getApp();
 Page({
 
   /**
@@ -11,67 +13,54 @@ Page({
     primarySize: 'default',
     warnSize: 'default',
     disabled: false,
-    plain: false,
-    loading: false
+    plain: true,
+    loading: false,
+    aboutUs:app.globalData.aboutUs,
+    // userInfo:{
+    //   avatarUrl: "",
+    //   nickName:""
+    // },
+    
   },
 
   getToken:function(){
     //申请令牌
     wx.login({
-      success (res) {
-        if (res.code) {
-          console.log('code:'+res.code);
-          //发起网络请求
-          wx.request({
-            
-            url: baseUrl + '/token/user',
-            method:"POST",
-            data: {
-              code: res.code
-            },
-            success(res){
-              console.log(res.data);
-              wx.setStorageSync('token', res.data.token)
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
-  },
-
-  testToken:function(){
-    wx.request({
-      url: baseUrl + '/testToken',
-      header:{
-        'token': wx.getStorageSync('token')
-      },
       success(res){
-        console.log(res);
-        //判断res.data中是否存在error_code确定鉴权是否成功
-        //error_code对应的错误码目前混乱，没有参考性
-        if("error_code" in res.data){
-          console.log(res.data.msg)
-        } else{
-          console.log('鉴权通过！')
+        if(res.code){
+          postApi(tokenApi,{code:res.code},function(res){
+            wx.setStorageSync('token', res.token);
+            wx.showToast({
+              title: '登陆成功',
+            })
+          })
+        }else{
+          console.log("登陆失败！");
         }
-      },
-      fail(){
-        console.log('服务器请求失败！')
       }
     })
+    testToken();
   },
-
-
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // wx.getUserInfo({
+    //   success: res => {
+    //     app.globalData.userInfo = res.userInfo;
+    //     console.log("app.globalData.userInfo="+app.globalData.userInfo);
+    //     this.setData({
+    //       "userInfo.avatarUrl": res.userInfo.avatarUrl,
+    //       "userInfo.nickName": res.userInfo.nickName
+    //     })
+    //   },fail:res =>{
+    //     console.log("getUserInfo error");
+    //   }
+    // })
   },
+
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -105,7 +94,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad();
+    wx.stopPullDownRefresh({
+      complete: (res) => {},
+    });
   },
 
   /**
@@ -120,5 +112,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  tap2ContactUs: function(){
+    wx.navigateTo({
+      url: '../aboutus/aboutus',
+    })
   }
 })

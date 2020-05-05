@@ -1,0 +1,31 @@
+<!--pages/publish/publish.wxml-->
+<view class="wrapper">
+  <view class="title">
+    <view class="title_text">请填写发布信息</view>
+  </view>
+  <button class="upload_btn" bindtap='upload'>上传</button>
+  <view class="items_name">
+    <text class="important">*</text>
+    <input auto-focus="{{autofocus}}" class="input_name" value='{{name_value}}' placeholder='请输入物品名'  maxlength='20' bindinput='bindNameValue'></input>
+  </view>
+  <view class="items_price">
+    <text class="important">*</text>
+    <input class="price" type="digit" value='{{price_value}}' placeholder='请输入价格'  maxlength='20' bindinput='bindPriceValue'></input>
+  </view>
+  <view class="items_detail">
+    <text class="important">*</text>
+    <textarea class="text_detail" value="{{detail_value}}" placeholder="请输入物品详情" auto-height="true" maxlength="120" bindinput="bindDetailValue"></textarea>
+  </view>
+  <text class="total_words" style="{{color}}">{{totalwords}}</text>
+  <view class='upImage'>
+    <view class='upImage-list'>
+      <view class='add_image' bindtap='chooseImage'>
+        <image class="image_icon" src="../../img/add.png"></image>
+      </view>
+      <view class='image-li' wx:for="{{imgs}}" wx:key="imgs">
+        <image class="img" bindtap='previewImage' data-index='{{index}}' mode='aspectFill' src='{{item}}'></image>
+        <text class="delImg" bindtap='delImage' data-index='{{index}}'>删除</text>
+      </view>
+    </view>
+  </view>
+</view>

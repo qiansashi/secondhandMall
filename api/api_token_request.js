@@ -1,9 +1,8 @@
-
 const app = getApp();
 // const creeperApi = "https://creeper.ds918.top/api/v1";
 
-//api get
-function getApi(url,callback){
+//api get(token)
+function getTokenApi(url,callback){
   wx.showLoading({
     title: '管家进行加载中...',
   })
@@ -12,14 +11,17 @@ function getApi(url,callback){
     data:{
   
     },
-    header: { 'Content-Type': 'application/json' }, 
+    header: { 
+      'Content-Type': 'application/json' ,
+      'token':wx.getStorageSync('token')
+    }, 
     timeout:5000,
     success(res){
       wx.hideLoading({
         complete: (res) => {},
       })
       console.log(res.data);
-      return typeof callback == "function" && callback(res.data);
+      return typeof callback == "function" && callback(res);
     },
     fail(res){
       wx.hideLoading({
@@ -35,8 +37,8 @@ function getApi(url,callback){
   })
 };
 
-//api post
-function postApi(url,postData,callback){
+//api post(token)
+function postTokenApi(url,postData,callback){
   wx.showLoading({
     title: '管家进行上传中...',
   })
@@ -44,14 +46,17 @@ function postApi(url,postData,callback){
     url: app.globalData.creeperApi+url,
     method:"POST",
     data: postData,
-    header: { 'Content-Type': 'application/json' }, 
+    header: { 
+      'Content-Type': 'application/json',
+      'token':wx.getStorageSync('token')
+     }, 
     timeout:5000,
     success(res){
       wx.hideLoading({
         complete: (res) => {},
       })
       console.log(res.data);
-      return typeof callback == "function" && callback(res.data);
+      return typeof callback == "function" && callback(res);
     },
     fail(res){
       wx.hideLoading({
@@ -67,31 +72,7 @@ function postApi(url,postData,callback){
   })
 };
 
-//token test
-function testToken(){
-  wx.request({
-    url: app.globalData.creeperApi + '/testToken',
-    header:{
-      'token': wx.getStorageSync('token')
-    },
-    success(res){
-      console.log(res);
-      //判断res.data中是否存在error_code确定鉴权是否成功
-      //error_code对应的错误码目前混乱，没有参考性
-      if("error_code" in res.data){
-        console.log(res.data.msg)
-      } else{
-        console.log('鉴权通过！')
-      }
-    },
-    fail(){
-      console.log('服务器请求失败！')
-    }
-  })
-}
-
 module.exports={
-  getApi:getApi,
-  postApi:postApi,
-  testToken:testToken
-};
+  getTokenApi:getTokenApi,
+  postTokenApi:postTokenApi
+}
