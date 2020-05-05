@@ -163,12 +163,81 @@ Page({
 
   },
 
+  //添加留言，需要登录才能留言
+  formSubmit: function (e) {
+
+    var that = this;
+    var liuyantext = e.detail.value.liuyantext; //获取表单所有name=liuyantext的值 
+    wx.showToast({
+      title: '已留言',
+      icon: 'success',
+    })//瞎写的
+    wx.request({
+      url: apiUrl + 'addcomment',
+      method:"POST",
+      data: {
+        comment:liuyantext,
+        'id':'19'//传递商品id
+      },
+      header: {
+        'Content-Type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success: function (res) {
+        console.log(res);
+        if(res.statusCode == 200){
+          that.setData({
+            re: res.data,
+          })
+          that.onLoad();//不知道这样刷新对不对？
+          wx.hideToast();
+        }else{
+          //留言失败
+        }
+      },
+    })
+  },
+
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading();
+    var that = this
+    wx.request({
+      url: apiUrl + 'loadcomment',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data:{
+        'id' : '19'//传递商品id
+      },
+      success: function (res) {
+        that.setData({
+          commentlist: res.data,
+        })
+        // 隐藏导航栏加载框
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: apiUrl + 'loadcomment',
+      data:{
+        'id' : '19'//传递商品id
+      },
+      success:function(res){
+        console.log(res.data);
+        that.setData({
+          commentlist:res.data,
+        })
+      }
+    })
   },
 
   /**
@@ -196,13 +265,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
   },
 
