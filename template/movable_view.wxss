@@ -18,9 +18,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  background: #2d3449;
+  background: transparent;
   border-radius: 60rpx;
   color: white;
   font-size: 26rpx;
-
 }

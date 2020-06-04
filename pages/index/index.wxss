@@ -4,10 +4,24 @@
 
 .top_color_block{
   width: 100%;
-  height: 245rpx;
+  height: 340rpx;
   background-size: 120rpx;
   background-color: #2d3449;
   position: absolute;
+  border-bottom-left-radius: 70% 10%;
+  border-bottom-right-radius: 70% 10%;
+}
+
+.userAvatar{
+  border-radius: 60rpx;
+  width: 95rpx;
+  height: 95rpx;
+  overflow: hidden;
+}
+
+.userImg{
+  height: 100%;
+  width: 100%;
 }
 
 .top_welcome_text{
@@ -16,7 +30,12 @@
   font-weight: bold;
   margin-left: 50rpx;
   margin-top: 13rpx;
+  display: flex;
+  flex-direction: row;
+}
 
+.welcome_font{
+  padding: 22rpx;
 }
 
 .top_text{
@@ -32,9 +51,9 @@
   display: flex;
   flex-direction: row;
   border-color: white;
-  border-radius: 20rpx;
+  border-radius: 48rpx;
   border-style: solid;
-  margin-top: 168rpx;
+  margin-top: 220rpx;
   z-index: 2;
   box-shadow: 0rpx 6rpx 8rpx grey;
 }
@@ -119,9 +138,9 @@
 
 .hot_msg{
   display: flex;
-  background-color: white;
-  height: 110rpx;
-  width: 95%;
+  background-color: #f1f1f1;
+  height: 115rpx;
+  width: 97%;
 }
 
 .hot_title{
@@ -147,14 +166,14 @@
   background-size: 100% auto; 
   background-repeat: no-repeat; 
   background-color: white;
-  height: 90rpx;
+  height: 115rpx;
   border-color: white;
   border-radius: 20rpx;
   border-style: solid;
   margin-top: 5rpx;
   z-index: 2;
   box-shadow: 0rpx 0rpx 8rpx grey;
-  width: 72%;
+  width: 100%;
   color: transparent;
 
 }
@@ -169,7 +188,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 130rpx;
+  height: 96rpx;
+  margin-bottom: 40rpx;
+  background-color: transparent;
 }
 
 .float_tag_latest{
@@ -178,7 +199,7 @@
   justify-content: flex-start;
   align-items: center;
   margin-top: 30rpx;
-  background: white;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .float_item{
@@ -188,11 +209,11 @@
 }
 
 .float_line0,.float_line1{
-  margin-top: 50rpx;
-  width: 100%;
-  height: 8rpx;
+  margin-top: 30rpx;
+  width: 10%;
+  height: 6rpx;
   background-color: #2d3449;
-
+  margin-left: 170rpx;
 }
 
 .latest_release_items{
@@ -223,3 +244,32 @@
   z-index: 1;
 }
 
+.white{
+  background-color: white;
+}
+
+.grey{
+  background-color: grey;
+}
+
+.movable_img{
+  width: 65%;
+  height: 65%;
+  margin-left: 20rpx;
+
+}
+
+.app_instruction{
+    width: 140rpx;
+    height: 45rpx;
+    font-size: 55%;
+    letter-spacing: 1rpx;
+    margin-top: 35rpx;
+    margin-left: 100rpx;
+    border-bottom-left-radius: 30rpx;
+    border-top-left-radius: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #e0e0da;
+}

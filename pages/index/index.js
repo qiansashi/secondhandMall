@@ -71,6 +71,9 @@ Page({
   scrollTop: 0 ,
   damping:100,
   sum:0,
+  indicator_dots:true,
+  indicator_color:"white",
+  indicator_active_color:"rgba(45,52,73)"
   },
 
   onReady: function () {

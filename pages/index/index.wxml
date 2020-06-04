@@ -3,8 +3,14 @@
 <view class="wrapper">
   <movable-area class="movable_area">
     <view class="top_color_block">
-      <view class="top_welcome_text">{{topWelcomeText}}</view>
+      <view class="top_welcome_text">
+        <view  class="userAvatar">
+          <open-data class="userImg" type="userAvatarUrl"></open-data>
+        </view>
+        <view class="welcome_font">{{topWelcomeText}}</view>
+      </view>
       <view class="top_text">{{topText}}</view>
+      <button class="app_instruction" bindtap="appInstructionShow" plain="true">指南</button>
     </view>
     <view class="top_bar_container">
       <view class="top_bar_item" wx:for="{{topBarArray}}" wx:key="id">
@@ -20,6 +26,9 @@
     <view class="swiper_container">
       <swiper class="swipers" 
       autoplay="{{autoplay}}" 
+      indicator-dots="{{indicator_dots}}"
+      indicator-color="{{indicator_color}}"
+      indicator-active-color="{{indicator_active_color}}"
       current="{{currentSwiper}}" 
       bindchange="swiperChange"
       >
@@ -29,28 +38,28 @@
           </swiper-item>
         </view>
       </swiper>
-      <!--重置小圆点的样式-->
-      <view class="dots">  
+      <!-- <view class="dots">  
           <block wx:for="{{adArray}}" wx:key="index">  
               <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>  
           </block>  
-      </view>  
+      </view>   -->
     </view>
     <view class="background_block1"></view>
     <view class="hot_msg">
-      <view class="hot_title">近期热门</view>
+      <!-- <view class="hot_title">近期热门</view> -->
       <view class="hot_release" style="background-image: url({{hotImgUrl}});">hot_pic</view>
     </view>
     <view class="background_block2"></view>
     <mp-sticky class="float_container" offset-top="{{mpoffsettop}}" z-index="{{mpzindex}}">
       <view class="float_tag_latest">
-        <view class="float_item" wx:for="{{tagArray}}" wx:key="index">{{item.tagName}}
-          <view class="float_line{{item.id}}" style="color:{{item.line_color}}" bindtap="{{}}"></view>
+        <view class="float_item" wx:for="{{tagArray}}" wx:key="index">
+          <view class="float_item_bg">{{item.tagName}}</view>
+          <view class="float_line{{item.id}}" bindtap="{{}}"></view>
         </view>
       </view>
     </mp-sticky>
     <!--这边实现的懒加载瀑布流数据量大会变卡，考虑用<recycle-view>重写-->
-    <view class="latest_release_items" 
+    <view class="latest_release_items {{index%2==0 ? 'white' : 'grey'}}" 
           wx:for="{{latestItemArray}}"  
           data-index="{{index}}" 
           wx:key="id" 
@@ -63,7 +72,7 @@
     direction="all" 
     bindtap="postItems"
     damping="{{damping}}">
-    发布闲置
+    <image class="movable_img" src="../../img/发布2.png"></image>
     </movable-view>
   </movable-area>
 </view>
