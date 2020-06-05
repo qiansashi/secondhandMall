@@ -9,7 +9,7 @@
       indicator-color="{{indicator_color}}"
       indicator-active-color="{{indicator_active_color}}"
       current="{{currentSwiper}}" >
-        <view wx:for="{{introArray}}" wx:key="id">
+        <view wx:for="{{introArray}}" wx:key="index">
           <swiper-item>
             <view class="intro_img" style="background-image: url({{item.src}});" data-index='{{index}}' bindtap="tapIntro">{{item.num}}</view>
           </swiper-item>

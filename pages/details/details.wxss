@@ -21,15 +21,15 @@
 }
 
 .item_name{
-  font-size: 55rpx;
+  font-size: 45rpx;
   color: white;
-  margin-left: 65rpx;
+  margin-left: 55rpx;
 }
 
 .item_price{
-  font-size: 45rpx;
+  font-size: 40rpx;
   color: white;
-  margin-left: 120rpx;
+  margin-left: 100rpx;
   margin-bottom: 23rpx;
 }
 
@@ -40,7 +40,7 @@
 .release_time{
   font-size: 25rpx;
   color: white;
-  margin-left: 30rpx;
+  margin-left: 55rpx;
 }
 
 .background_block{
