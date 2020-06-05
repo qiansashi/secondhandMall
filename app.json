@@ -12,7 +12,8 @@
     "pages/details/details",
     "pages/publish/publish",
     "pages/aboutus/aboutus",
-    "pages/version/version"
+    "pages/version/version",
+    "pages/qrcode/qrcode"
   ],
   "window": {
     "backgroundTextStyle": "light",

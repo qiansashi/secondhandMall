@@ -4,6 +4,7 @@
     <view class="item_name">{{name}}</view>
     <view class="item_price">{{price}}元</view>
     <view class="release_time">{{time}}</view>
+    <view class="scan_code" bindtap="saveCode">生成二维码</view>
   </view>
   <view class="favourite" bindtap="addMyFavourite">收藏</view>
   <view class="background_block"></view>

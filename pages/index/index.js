@@ -68,6 +68,8 @@ Page({
   topText:"帮你的闲置快速换成钱哦~",
   movableViewX:320,
   movableViewY:10,
+  movableViewX2:320,
+  movableViewY2:500,
   scrollTop: 0 ,
   damping:100,
   sum:0,
@@ -284,6 +286,21 @@ Page({
     })
   },
 
+  scanItems:function(){
+    wx.scanCode({
+      complete: (res) => {
+        console.log(res);
+        var nav=res["result"].split("&")[0];
+        //获取productId
+        var id=parseInt(res["result"].split("&")[1].substring(10));
+        wx.setStorageSync('productId', id)
+        wx.navigateTo({
+          url: nav,
+        })
+      },
+    })
+  },
+
   appInstructionShow:function(){
     var that = this;
     that.setData({
@@ -321,6 +338,6 @@ Page({
       current:imgUrlList[e.currentTarget.dataset.index]
     })
   }
-  
+
 })
 

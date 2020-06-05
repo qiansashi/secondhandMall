@@ -1,0 +1,18 @@
+<!--pages/qrcode/qrcode.wxml-->  
+<view class="container">
+  <view class="main">
+    <view class="qrcode item">
+      <canvas style="width: 200px; height: 200px;" canvas-id="goodsQrcode"></canvas>
+      <view class="tips">{{text}}</view>
+    </view>
+    <view class="input-container item">
+      <button type="default" size="{{defaultSize}}" bindtap="saveText">保存到相册</button>
+    </view>
+    <view class="round left"></view>
+    <view class="round right"></view>
+    <view class="intro item">
+      <view class="title">说明：</view>
+      <view>可以保存到相册分享或直接在小程序中扫描</view>
+    </view>
+  </view>
+</view>

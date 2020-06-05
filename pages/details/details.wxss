@@ -9,7 +9,7 @@
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
   background-color: #2d3449;
-  height: 200rpx;
+  height: 300rpx;
 
 }
 
@@ -183,4 +183,10 @@
   font-size:14px;
   color:#ccc;
   margin-top:20px;
+}
+
+.scan_code{
+  color: white;
+  margin-top: 50rpx;
+  margin-left: 20rpx;
 }

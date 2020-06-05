@@ -23,3 +23,17 @@
   color: white;
   font-size: 26rpx;
 }
+
+.movable_view_window2{
+  height: 120rpx;
+  width: 120rpx;
+  z-index: 99;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #2d3449;
+  border-radius: 60rpx;
+  color: white;
+  font-size: 26rpx;
+}

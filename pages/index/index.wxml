@@ -92,5 +92,13 @@
     damping="{{damping}}">
     <image class="movable_img" src="../../img/发布.png"></image>
     </movable-view>
+    <movable-view class="movable_view_window2"  
+    x="{{movableViewX2}}" 
+    y="{{movableViewY2}}" 
+    direction="all" 
+    bindtap="scanItems"
+    damping="{{damping}}">
+    扫一扫
+    </movable-view>
   </movable-area>
 </view>

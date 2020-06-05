@@ -175,4 +175,10 @@ Page({
     }
   },
 
+  saveCode(){
+    wx.navigateTo({
+      url: '../qrcode/qrcode',
+    })
+  }
+
 })
