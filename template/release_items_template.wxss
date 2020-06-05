@@ -42,7 +42,7 @@
 
 .release_detail_text{
   width: 80%;
-  height: 68rpx;
+  height: 38rpx;
   margin-left: 75rpx;
   font-size: 25rpx;
   overflow: hidden;
