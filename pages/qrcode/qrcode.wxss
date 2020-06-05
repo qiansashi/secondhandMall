@@ -12,9 +12,11 @@ Page {
   box-sizing: border-box;
   position: relative;
 }
+
 .item {
   border-bottom: 2rpx solid #F4F5F7;
 }
+
 .item > button {
   height: 60rpx;
   font-size: 30rpx;
@@ -23,36 +25,45 @@ Page {
   padding: 0 15rpx;
   margin: 10rpx 20rpx 0 0;
 }
+
 .qrcode {
   width: 590rpx;
   margin: 0 auto;
   padding: 50rpx 0 59rpx;
   border-top: 2rpx solid #F4F5F7;
 }
+
 .qrcode > view, .qrcode > text {
   text-align: center;
 }
+
 canvas {
   margin: 58rpx auto 0;
 }
+
 .type {
   margin-top: 24rpx;
   font-size: 28rpx;
   color: #585C64;
   line-height: 32rpx;
 }
+
 .tips {
   margin-top: 40rpx;
   font-size: 24rpx;
   color: #999BA1;
   line-height: 28rpx;
 }
+
 .input-container {
   padding: 10rpx 0 0 0;
   width: 590rpx;
   margin: 0 auto;
   height: 102rpx;
+  display: flex;
+  flex-direction: column;
 }
+
 .input-container > input {
   display: inline-block;
   height: 80rpx;
@@ -61,8 +72,8 @@ canvas {
   line-height: 102rpx;
   width: 450rpx;
 }
+
 .input-container > button {
-  width: 120rpx;
   height: 60rpx;
   font-size: 30rpx;
   line-height: 60rpx;
@@ -70,6 +81,7 @@ canvas {
   float: right;
   margin-top: 10rpx;
 }
+
 .arrow {
   width: 28rpx;
   height: 28rpx;
@@ -77,6 +89,7 @@ canvas {
   margin-top: 36rpx;
   float: right;
 }
+
 .round {
   width: 24rpx;
   height: 24rpx;
@@ -85,16 +98,20 @@ canvas {
   position: absolute;
   top: 735rpx;
 }
+
 .left {
   left: -12rpx;
 }
+
 .right {
   right: -12rpx;
 }
+
 .intro {
   width: 590rpx;
   margin-top: 20rpx;
 }
+
 .intro > view{
   color: #999BA1;
   font-size: 28rpx;
@@ -102,6 +119,7 @@ canvas {
   word-wrap: break-word;
   margin-bottom: 8rpx;
 }
+
 .intro > .title {
   font-size: 32rpx;
   color: #191D21;

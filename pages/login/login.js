@@ -18,7 +18,7 @@ Page({
     loading: false,
     aboutUs:app.globalData.aboutUs,
     pv:0,
-    version:"1.3.1"
+    version:"1.3.2"
     // userInfo:{
     //   avatarUrl: "",
     //   nickName:""

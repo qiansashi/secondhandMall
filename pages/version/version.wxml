@@ -1,5 +1,5 @@
 <!--pages/version/version.wxml-->
-<text>1.3.1更新如下</text>
+<text>1.3.2更新如下</text>
 <view>1.首页样式改动，新增图标</view>
 <view>2.修复banner鬼畜问题，提高稳定性</view>
 <view>3.添加日访问量</view>

@@ -74,11 +74,11 @@ Page({
       // ctx: wx.createCanvasContext('myQrcode'),
       text: '../details/details&productId='+this.getQrCodeText(),
       image: {
-        imageResource: '../../img/WechatIMG4.png',
-        dx: 70,
-        dy: 70,
-        dWidth: 60,
-        dHeight: 60
+        imageResource: '../../img/xian.png',
+        dx: 22,
+        dy: 0,
+        dWidth: 180,
+        dHeight: 180
       },callback(e) {
       console.log('e:', e);
       }
