@@ -1,6 +1,24 @@
 <!--index.wxml-->
 <import src="../../template/release_items_template.wxml" />
 <view class="wrapper">
+  <view class='intro_background' style="display:{{intro_display}}">
+    <view class="img_container">
+      <swiper class="intro_img_swipers" 
+      autoplay="{{autoplay}}" 
+      indicator-dots="{{indicator_dots}}"
+      indicator-color="{{indicator_color}}"
+      indicator-active-color="{{indicator_active_color}}"
+      current="{{currentSwiper}}" >
+        <view wx:for="{{introArray}}" wx:key="id">
+          <swiper-item>
+            <view class="intro_img" style="background-image: url({{item.src}});" data-index='{{index}}' bindtap="tapIntro">{{item.num}}</view>
+          </swiper-item>
+        </view>
+      </swiper>
+    </view>
+    <view class="know_more" bindtap="knowMore" style="display:{{knowmore_display}}">更多详情</view>
+    <button class="intro_agree" bindtap="introKnown" style="display:{{introKnown_display}}">我已了解</button>
+  </view>
   <movable-area class="movable_area">
     <view class="top_color_block">
       <view class="top_welcome_text">
@@ -10,7 +28,7 @@
         <view class="welcome_font">{{topWelcomeText}}</view>
       </view>
       <view class="top_text">{{topText}}</view>
-      <button class="app_instruction" bindtap="appInstructionShow" plain="true">指南</button>
+      <button class="app_instruction" bindtap="appInstructionShow">使用指南</button>
     </view>
     <view class="top_bar_container">
       <view class="top_bar_item" wx:for="{{topBarArray}}" wx:key="id">
@@ -72,7 +90,7 @@
     direction="all" 
     bindtap="postItems"
     damping="{{damping}}">
-    <image class="movable_img" src="../../img/发布2.png"></image>
+    <image class="movable_img" src="../../img/发布.png"></image>
     </movable-view>
   </movable-area>
 </view>

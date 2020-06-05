@@ -122,6 +122,9 @@ Page({
           name: 'image',//name必须为image
           success: function (res) {
             console.log(res.data);
+            wx.showToast({
+              title: '上传成功！',
+            })
             //上传成功
           },
           fail(){

@@ -9,6 +9,7 @@
   </view>
   <view class="contact_us1" bindtap="tap2ContactUs">关于我们</view>
   <view class="contact_us2" bindtap="tap2ContactServer">联系客服</view>
+  <view class="version" bindtap="tap2Version">当前版本：{{version}}</view>
   <span class="otherway">———使用以下方式登录————————————</span>
   <button
   class="login_btn"
@@ -19,5 +20,6 @@
   disabled="{{disabled}}" 
   bindtap="getToken"> 微信授权登录 </button>
   <view class="about_us">{{aboutUs}}</view>
+  <view class="page_view">本日浏览量：{{pv}}</view>
 </view>
 

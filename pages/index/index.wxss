@@ -53,7 +53,7 @@
   border-color: white;
   border-radius: 48rpx;
   border-style: solid;
-  margin-top: 220rpx;
+  margin-top: 240rpx;
   z-index: 2;
   box-shadow: 0rpx 6rpx 8rpx grey;
 }
@@ -249,7 +249,7 @@
 }
 
 .grey{
-  background-color: grey;
+  background-color: rgb(223, 223, 223);
 }
 
 .movable_img{
@@ -260,16 +260,64 @@
 }
 
 .app_instruction{
-    width: 140rpx;
-    height: 45rpx;
-    font-size: 55%;
-    letter-spacing: 1rpx;
-    margin-top: 35rpx;
-    margin-left: 100rpx;
-    border-bottom-left-radius: 30rpx;
-    border-top-left-radius: 30rpx;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #e0e0da;
+  width: 200rpx;
+  height: 45rpx;
+  font-size: 55%;
+  margin-top: 5rpx;
+  color: white;
+  position: absolute;
+  left: 0 auto;
+  background-color: #2d3449;
+}
+
+.app_instruction::after{
+  border: none;
+}
+
+.intro_background{
+  z-index: 1001;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  height: 100%;
+  width: 100%;  
+}
+
+.know_more{
+  z-index: 1002;
+  color: white;
+  border: none;
+  position: absolute;
+  bottom: 150rpx;
+  width: 100%;
+  text-align: center;
+  text-decoration-line: underline;
+}
+
+.intro_agree{
+  z-index: 1002;
+  position: fixed;
+  bottom: 20rpx;
+  width: 100%;
+  background-color: #2d3449;
+  color: white;
+  border: none;
+}
+
+.intro_img{
+  background-size: 100% auto; 
+  background-repeat: no-repeat; 
+  background-color: white;
+  height: 100%;
+  border-color: white;
+  border-radius: 20rpx;
+  margin-top: 5rpx;
+  z-index: 2;
+  box-shadow: 0rpx 0rpx 8rpx grey;
+  width: 100%;
+  color: transparent;
+}
+
+.intro_img_swipers{
+  height: 940rpx;
+
 }

@@ -8,7 +8,7 @@ import {getRecentProductUrl, getRecentProductApi,JudgeSum} from "../../api/recen
 
 Page({
   data: {
-   topBarArray:[{
+  topBarArray:[{
      id:"release",
      icon:"已发布",
      topBarBtn:"releaseBtn",
@@ -66,14 +66,30 @@ Page({
   page:0,
   topWelcomeText: "欢迎使用闲置管家",
   topText:"帮你的闲置快速换成钱哦~",
-  movableViewX:300,
+  movableViewX:320,
   movableViewY:10,
   scrollTop: 0 ,
   damping:100,
   sum:0,
   indicator_dots:true,
   indicator_color:"white",
-  indicator_active_color:"rgba(45,52,73)"
+  indicator_active_color:"rgba(45,52,73)",
+  intro_display: 'none',
+  introKnown_display: 'none',
+  knowmore_display: 'none',
+  introArray:[{
+    id:0,
+    src:"../../img/introduction1.png",
+    num:1
+  },{
+    id:1,
+    src:"../../img/introduction2.png",
+    num:2
+  },{
+    id:2,
+    src:"../../img/introduction3.png",
+    num:3
+  }]
   },
 
   onReady: function () {
@@ -267,5 +283,44 @@ Page({
       url: '../publish/publish',
     })
   },
+
+  appInstructionShow:function(){
+    var that = this;
+    that.setData({
+      intro_display: 'block',
+      knowmore_display: 'block',
+      introKnown_display: 'block',
+    })
+  },
+
+  introKnown:function(){
+    var that = this;
+    that.setData({
+      intro_display: 'none',
+      knowmore_display: 'none',
+      introKnown_display: 'none',
+    })
+
+  },
+
+  knowMore:function(){
+    wx.showToast({
+      title: '已无更多',
+      icon:"none"
+    })
+  },
+
+  tapIntro: function(e){
+    var that=this;
+    var imgUrlList=new Array();
+    for(var each in that.data.introArray){
+      imgUrlList[each]=that.data.introArray[each]["src"];
+    }
+    wx.previewImage({
+      urls: imgUrlList,
+      current:imgUrlList[e.currentTarget.dataset.index]
+    })
+  }
+  
 })
 

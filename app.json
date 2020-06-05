@@ -11,7 +11,8 @@
     "pages/login/login",
     "pages/details/details",
     "pages/publish/publish",
-    "pages/aboutus/aboutus"
+    "pages/aboutus/aboutus",
+    "pages/version/version"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,14 +34,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "./img/首页2.png",
+        "selectedIconPath": "./img/首页2.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/release/release",
+        "iconPath": "./img/发布2.png",
+        "selectedIconPath": "./img/发布2.png",
         "text": "发布"
       },
       {
         "pagePath": "pages/login/login",
+        "iconPath": "./img/我的2.png",
+        "selectedIconPath": "./img/我的2.png",
         "text": "我的"
       }
     ]

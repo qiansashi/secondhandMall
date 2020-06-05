@@ -65,6 +65,16 @@
   box-shadow: 0rpx 6rpx 8rpx grey;
 }
 
+.version{
+  margin-top: 2rpx;
+  width: 96%;
+  border-color: white;
+  border-radius: 6rpx;
+  border-style: solid;
+  z-index: 2;
+  box-shadow: 0rpx 6rpx 8rpx grey;
+}
+
 .login_btn{
   margin-top: 25rpx;
   border-radius: 80rpx;
@@ -89,3 +99,7 @@ span.otherway{
   font-size: 20rpx;
 }
 
+.page_view{
+  margin-top: 35rpx;
+  font-size: 22rpx;
+}

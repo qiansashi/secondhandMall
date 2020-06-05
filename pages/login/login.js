@@ -2,6 +2,7 @@
 
 import {getApi,postApi,testToken} from "../../api/api_request";
 const tokenApi= '/token/user';
+const pvApi= '/RecentViews';
 const app=getApp();
 Page({
 
@@ -16,6 +17,8 @@ Page({
     plain: true,
     loading: false,
     aboutUs:app.globalData.aboutUs,
+    pv:0,
+    version:"1.2.1"
     // userInfo:{
     //   avatarUrl: "",
     //   nickName:""
@@ -58,9 +61,19 @@ Page({
     //     console.log("getUserInfo error");
     //   }
     // })
+    var that=this;
+    getApi(pvApi,function(res){
+      that.setData({
+        pv:res[0]["count"]
+      })
+    });
   },
 
-  
+  tap2Version:function(){
+    wx.navigateTo({
+      url: '../version/version',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -113,9 +126,11 @@ Page({
   onShareAppMessage: function () {
 
   },
+
   tap2ContactUs: function(){
     wx.navigateTo({
       url: '../aboutus/aboutus',
     })
-  }
+  },
+
 })
